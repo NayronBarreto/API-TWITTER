@@ -7,7 +7,12 @@ module.exports = {
     try {
       const id = req.userId;
 
-      const { name, username, password, confirmPassword } = req.body;
+      const {
+        name,
+        username,
+        password,
+        confirmPassword,
+      } = req.body;
 
       if (password && password !== confirmPassword) {
         return res.state(400).json({ error: 'Password do not match' });

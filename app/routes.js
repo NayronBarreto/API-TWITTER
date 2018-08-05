@@ -28,4 +28,10 @@ routes.use(authMiddlewares);
 routes.post('/tweets', controllers.tweetController.create);
 routes.delete('/tweets/:id', controllers.tweetController.destroy);
 
+/**
+ * Likes
+ */
+
+routes.post('/like/:id', controllers.likeController.toogle);
+
 module.exports = routes;
