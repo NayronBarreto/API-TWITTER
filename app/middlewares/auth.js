@@ -6,24 +6,26 @@ const authoConfig = require('../../config/auth');
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
+
   if (!authHeader) {
     return res.status(401).json({ error: 'No token provided' });
   }
 
   const parts = authHeader.split(' ');
 
-  if (parts !== 2) {
+
+  if (!parts.length === 2) {
     return res.status(401).json({ error: 'Token error' });
   }
 
-  const [schema, token] = parts;
+  const [scheme, token] = parts;
 
-  if (schema !== 'Bearer') {
+  if (scheme !== 'Bearer') {
     return res.status(401).json({ error: 'Token malFormated' });
   }
 
   try {
-    const decoded = await promisify(jwt.verify)(token, authoConfig);
+    const decoded = await promisify(jwt.verify)(token, authoConfig.secret);
 
     req.userId = decoded.id;
 
