@@ -11,20 +11,20 @@ Install:
 
 Routes:
 
-post('/signup');
-post('/signin');
+post('/api/signup');
+post('/api/signin');
 
 
-post('/tweets');
-delete('/tweets/:id');
+post('/api/tweets');
+delete('/api/tweets/:id');
 
-post('/like/:id');
+post('/api/like/:id');
 
-get('/users/me');
-get('/feeds');
+get('/api/users/me');
+get('/api/feeds');
 
-post('/follow/:id');
-delete('/unfollow/:id');
+post('/api/follow/:id');
+delete('/api/unfollow/:id');
     
     
  
