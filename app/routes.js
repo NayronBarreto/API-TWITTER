@@ -34,4 +34,18 @@ routes.delete('/tweets/:id', controllers.tweetController.destroy);
 
 routes.post('/like/:id', controllers.likeController.toogle);
 
+
+/**
+ * Use
+ */
+routes.get('/users/me', controllers.userController.me);
+routes.get('/feeds', controllers.userController.feed);
+
+/**
+ * Follows
+ */
+
+routes.post('/follow/:id', controllers.followController.create);
+routes.delete('/unfollow/:id', controllers.followController.destroy);
+
 module.exports = routes;
